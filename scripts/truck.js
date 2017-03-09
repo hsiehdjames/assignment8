@@ -25,6 +25,12 @@
         }.bind(this));
     };
 
+//Need to create this function to test print order to make sure the order is enetered
+    Truck.prototype.checkOrders = function(){
+        return Object(this.db.getAll());
+    };
+
+
     App.Truck = Truck;
     window.App = App;
 })(window);
