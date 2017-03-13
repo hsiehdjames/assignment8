@@ -2,14 +2,118 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>coffeerun</title>
+  <meta charset="utf-8">
+  <title>coffeerun</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
-<body>
-    <script src="scripts/datastore.js" charset="utf-8"></script>
-    <script src="scripts/truck.js" charset="utf-8"></script>
-    <script src="scripts/main.js" charset="utf-8"></script>
+<body class="container">
+  <header>
+    <h1>CoffeeRun</h1>
+  </header>
+  <section>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form data-coffee-order="form">
+          <div class="form-group">
+            <label for="coffeeOrder">Coffee Order</label>
+            <input class="form-control" name="coffee" id="coffeeOrder" autofocus>
+          </div>
+          <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input class="form-control" type="email" name="emailAddress" id="emailInput" value="" placeholder="dr@who.com">
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="short">
+              Short
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="tall" checked>
+              Tall
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="grande">
+              Grande
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="coffee-zilla">
+              Coffee-Zilla
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="flavorShot">Flavor Shot</label>
+            <select id="flavorShot" class="form-control" name="flavor">
+              <option value="">None</option>
+              <option value="caramel">Caramel</option>
+              <option value="almond">Almond</option>
+              <option value="mocha">Mocha</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="strengthLevel">Caffeine Rating</label>
+            <label id="strengthTxt">30</label>
+            <input name="strength" id="strengthLevel" type="range" value="30">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="reset" class="btn btn-default">Reset</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Hidden Achivement!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Choose a speical ability</p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="power" value="freeze">
+              Freeze Time
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="power" value="invisibility">
+              Invisibility
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="power" value="mind">
+              Mind Control
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="btSave" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+  <script src="scripts/formhandler.js" charset="utf-8"></script>
+  <script src="scripts/datastore.js" charset="utf-8"></script>
+  <script src="scripts/truck.js" charset="utf-8"></script>
+  <script src="scripts/main.js" charset="utf-8"></script>
 </body>
+
 
 </html>

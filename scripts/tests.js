@@ -2,7 +2,7 @@ var QUnit;
 QUnit.test('test', function(assert) {
     var App = window.App || {};
     var ds = new App.DataStore();
-    
+
     var myTruck = new App.Truck('ncc-1701', new App.DataStore());
     assert.equal(ds.add('m@bond.com', 'tea'), undefined);
     assert.equal(ds.add('m@bond.com', 'tea'), undefined);
