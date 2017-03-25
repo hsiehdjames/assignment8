@@ -6,7 +6,7 @@
             return /.+@bignerdranch\.com$/.test(email);
         },
         decafValidation: function(word, strength) {
-            console.log('validation: ' + word + ',' + strength);
+            //console.log('validation: ' + word + ',' + strength);
             if (word.includes('decaf') && strength >= 20) {
                 console.log('too strong');
                 return false;

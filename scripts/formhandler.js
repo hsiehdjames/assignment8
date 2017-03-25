@@ -1,4 +1,3 @@
-var strength = 30;
 (function(window) {
     'use strict';
     var App = window.App || {};
@@ -51,7 +50,6 @@ var strength = 30;
                     console.log(data);
                     fn(data);
                 });
-                strength = 30;
                 this.reset();
                 this.elements[0].focus();
                 $('#strengthTxt')[0].textContent = '30';
@@ -74,16 +72,16 @@ var strength = 30;
                     console.log(data);
                     fn(data);
                 });
-                strength = 30;
                 this.reset();
                 this.elements[0].focus();
                 $('#strengthTxt')[0].textContent = '30';
                 $('#strengthTxt').css('color', 'green');
             } else {
                 console.log(data);
-                fn(data);
-                this.reset();
-                this.elements[0].focus();
+                fn(data).then(function() {
+                    this.reset();
+                    this.elements[0].focus();
+                }.bind(this));
                 $('#strengthTxt')[0].textContent = '30';
                 $('#strengthTxt').css('color', 'green');
             }
@@ -93,7 +91,7 @@ var strength = 30;
     FormHandler.prototype.addInputHandler = function(fn) {
         console.log('Setting input handler for form');
         this.$formElement.on('input', '[name="emailAddress"]', function(event) {
-            console.log(event.target.value + ', email');
+            //console.log(event.target.value + ', email');
             var emailAddress = event.target.value;
             var message = '';
             if (fn(emailAddress)) {
@@ -106,10 +104,12 @@ var strength = 30;
     };
 
     FormHandler.prototype.addDecafHandler = function(fn) {
-        console.log('decaf validation '+strength);
+        //console.log('decaf validation '+strength);
         var coffeeName = '';
         var message = 'Strength too strong for decaf!';
         this.$formElement.on('input', '[name="coffee"]', function(event) {
+            var strength = document.getElementById('strengthLevel').value;
+            console.log('click text ' + strength);
             coffeeName = event.target.value;
             console.log($('input[name="coffee"]')[0]);
             if (fn(coffeeName, strength)) {
@@ -122,8 +122,7 @@ var strength = 30;
             }
         });
         this.$formElement.on('input', '[name="strength"]', function(event) {
-            strength = event.target.value;
-            console.log('asdfasdf' + coffeeName + ':' + strength);
+            var strength = event.target.value;
             if (fn(coffeeName, strength)) {
                 console.log('number okay');
                 event.target.setCustomValidity('');
